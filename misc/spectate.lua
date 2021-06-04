@@ -142,7 +142,7 @@ local function main() -- Spectate.LocalScript
 		for i = 1, #plrs do
 			local newBut = temp:Clone()
 			newBut.Position = UDim2.new(0, 0, (i-1)*0.083, 0)
-			newBut.Text = plrs[i].DisplayName.."("..plrs[i].Name..")"
+			newBut.Text = plrs[i].DisplayName.." ("..plrs[i].Name..")"
 			newBut.Visible = true
 			newBut.Parent = sframe
 			cons[i] = newBut.MouseButton1Down:Connect(function()
@@ -158,6 +158,7 @@ local function main() -- Spectate.LocalScript
 		for i = 1, #plrList do
 			if plrName == string.lower(string.sub(plrList[i].Name, 1, string.len(plrName))) then
 				cam.CameraSubject = plrList[i].Character.Humanoid
+				info.Text = "Display: "..plrList[i].DisplayName.."\nUsername: "..plrList[i].Name.."\nUserId: "..plrList[i].UserId
 				return
 			end
 		end
