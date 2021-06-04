@@ -4,14 +4,19 @@ local TextBox = Instance.new("TextBox")
 local Spectate_2 = Instance.new("TextButton")
 local Unspectate = Instance.new("TextButton")
 local ScrollingFrame = Instance.new("ScrollingFrame")
-local PlayerInfo = Instance.new("TextLabel")
+local Display = Instance.new("TextLabel")
 local Template = Instance.new("TextButton")
 local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
 local UICorner = Instance.new("UICorner")
+local Name = Instance.new("TextLabel")
+local Id = Instance.new("TextLabel")
+local UI = Instance.new("TextBox")
+local UN = Instance.new("TextBox")
+local DN = Instance.new("TextBox")
 
 Spectate.Name = "Spectate"
-Spectate.Enabled = false
 Spectate.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+Spectate.Enabled = false
 Spectate.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 Frame.Parent = Spectate
@@ -76,21 +81,21 @@ ScrollingFrame.Size = UDim2.new(0.482777178, 0, 0.734380007, 0)
 ScrollingFrame.CanvasSize = UDim2.new(0, 0, 2.25, 0)
 ScrollingFrame.ScrollBarThickness = 0
 
-PlayerInfo.Name = "PlayerInfo"
-PlayerInfo.Parent = Frame
-PlayerInfo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-PlayerInfo.BackgroundTransparency = 1.000
-PlayerInfo.BorderSizePixel = 5
-PlayerInfo.Position = UDim2.new(0.0387624875, 0, 0.289490253, 0)
-PlayerInfo.Size = UDim2.new(0.409640312, 0, 0.367000014, 0)
-PlayerInfo.Font = Enum.Font.Fantasy
-PlayerInfo.Text = "Display: \\nUsername: \\nUserId:"
-PlayerInfo.TextColor3 = Color3.fromRGB(255, 255, 255)
-PlayerInfo.TextScaled = true
-PlayerInfo.TextSize = 20.000
-PlayerInfo.TextStrokeColor3 = Color3.fromRGB(20, 20, 20)
-PlayerInfo.TextStrokeTransparency = 0.000
-PlayerInfo.TextWrapped = true
+Display.Name = "Display"
+Display.Parent = Frame
+Display.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Display.BackgroundTransparency = 1.000
+Display.BorderSizePixel = 5
+Display.Position = UDim2.new(0.0387625098, 0, 0.289490253, 0)
+Display.Size = UDim2.new(0.151293561, 0, 0.122300006, 0)
+Display.Font = Enum.Font.Fantasy
+Display.Text = "Display:"
+Display.TextColor3 = Color3.fromRGB(255, 255, 255)
+Display.TextScaled = true
+Display.TextSize = 20.000
+Display.TextStrokeColor3 = Color3.fromRGB(20, 20, 20)
+Display.TextStrokeTransparency = 0.000
+Display.TextWrapped = true
 
 Template.Name = "Template"
 Template.Parent = Frame
@@ -117,7 +122,96 @@ UIAspectRatioConstraint.DominantAxis = Enum.DominantAxis.Height
 UICorner.CornerRadius = UDim.new(0.0500000007, 0)
 UICorner.Parent = Frame
 
-local function main() -- Spectate.LocalScript 
+Name.Name = "Name"
+Name.Parent = Frame
+Name.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Name.BackgroundTransparency = 1.000
+Name.BorderSizePixel = 5
+Name.Position = UDim2.new(0.0387625098, 0, 0.409062326, 0)
+Name.Size = UDim2.new(0.151293561, 0, 0.122300006, 0)
+Name.Font = Enum.Font.Fantasy
+Name.Text = "Username:"
+Name.TextColor3 = Color3.fromRGB(255, 255, 255)
+Name.TextScaled = true
+Name.TextSize = 20.000
+Name.TextStrokeColor3 = Color3.fromRGB(20, 20, 20)
+Name.TextStrokeTransparency = 0.000
+Name.TextWrapped = true
+
+Id.Name = "Id"
+Id.Parent = Frame
+Id.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Id.BackgroundTransparency = 1.000
+Id.BorderSizePixel = 5
+Id.Position = UDim2.new(0.0387625098, 0, 0.528634369, 0)
+Id.Size = UDim2.new(0.151293561, 0, 0.122300006, 0)
+Id.Font = Enum.Font.Fantasy
+Id.Text = "UserId:"
+Id.TextColor3 = Color3.fromRGB(255, 255, 255)
+Id.TextScaled = true
+Id.TextSize = 20.000
+Id.TextStrokeColor3 = Color3.fromRGB(20, 20, 20)
+Id.TextStrokeTransparency = 0.000
+Id.TextWrapped = true
+
+UI.Name = "UI"
+UI.Parent = Frame
+UI.Active = false
+UI.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UI.BackgroundTransparency = 0.700
+UI.BorderSizePixel = 0
+UI.Position = UDim2.new(0.185719997, 0, 0.531781018, 0)
+UI.Selectable = false
+UI.Size = UDim2.new(0.25999999, 0, 0.109999999, 0)
+UI.ClearTextOnFocus = false
+UI.Font = Enum.Font.Fantasy
+UI.Text = ""
+UI.TextColor3 = Color3.fromRGB(255, 255, 255)
+UI.TextScaled = true
+UI.TextSize = 20.000
+UI.TextStrokeColor3 = Color3.fromRGB(20, 20, 20)
+UI.TextStrokeTransparency = 0.000
+UI.TextWrapped = true
+
+UN.Name = "UN"
+UN.Parent = Frame
+UN.Active = false
+UN.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UN.BackgroundTransparency = 0.700
+UN.BorderSizePixel = 0
+UN.Position = UDim2.new(0.185719997, 0, 0.412208945, 0)
+UN.Selectable = false
+UN.Size = UDim2.new(0.25999999, 0, 0.109999999, 0)
+UN.ClearTextOnFocus = false
+UN.Font = Enum.Font.Fantasy
+UN.Text = ""
+UN.TextColor3 = Color3.fromRGB(255, 255, 255)
+UN.TextScaled = true
+UN.TextSize = 20.000
+UN.TextStrokeColor3 = Color3.fromRGB(20, 20, 20)
+UN.TextStrokeTransparency = 0.000
+UN.TextWrapped = true
+
+DN.Name = "DN"
+DN.Parent = Frame
+DN.Active = false
+DN.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+DN.BackgroundTransparency = 0.700
+DN.BorderSizePixel = 0
+DN.Position = UDim2.new(0.185719997, 0, 0.292636871, 0)
+DN.Selectable = false
+DN.Size = UDim2.new(0.25999999, 0, 0.109999999, 0)
+DN.ClearTextOnFocus = false
+DN.Font = Enum.Font.Fantasy
+DN.Text = ""
+DN.TextColor3 = Color3.fromRGB(255, 255, 255)
+DN.TextScaled = true
+DN.TextSize = 20.000
+DN.TextStrokeColor3 = Color3.fromRGB(20, 20, 20)
+DN.TextStrokeTransparency = 0.000
+DN.TextWrapped = true
+
+local function main() 
 
 	local UIS = game:GetService("UserInputService")
 	
@@ -131,7 +225,12 @@ local function main() -- Spectate.LocalScript
 	local unspectBut = frame.Unspectate
 	local cam = workspace.CurrentCamera
 	local temp = frame.Template
-	local info = frame.PlayerInfo
+	
+	local function updateInfo(plr)
+		frame.UI.Text = plr.UserId
+		frame.UN.Text = plr.Name
+		frame.DN.Text = plr.DisplayName
+	end
 	
 	local function updateList()
 		for i = 1, #cons do
@@ -146,7 +245,7 @@ local function main() -- Spectate.LocalScript
 			newBut.Visible = true
 			newBut.Parent = sframe
 			cons[i] = newBut.MouseButton1Down:Connect(function()
-				info.Text = "Display: "..plrs[i].DisplayName.."\nUsername: "..plrs[i].Name.."\nUserId: "..plrs[i].UserId
+				updateInfo(plrs[i])
 				textbox.Text = plrs[i].Name	
 			end)
 		end
@@ -158,7 +257,7 @@ local function main() -- Spectate.LocalScript
 		for i = 1, #plrList do
 			if plrName == string.lower(string.sub(plrList[i].Name, 1, string.len(plrName))) then
 				cam.CameraSubject = plrList[i].Character.Humanoid
-				info.Text = "Display: "..plrList[i].DisplayName.."\nUsername: "..plrList[i].Name.."\nUserId: "..plrList[i].UserId
+				updateInfo(plrList[i])
 				return
 			end
 		end
@@ -179,4 +278,5 @@ local function main() -- Spectate.LocalScript
 	game.Players.PlayerRemoving:Connect(updateList)
 	updateList()
 end
+
 main()
